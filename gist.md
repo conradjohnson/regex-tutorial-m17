@@ -1,10 +1,9 @@
-# Title (replace with your title)
+# Regex - Inevitable 
 
-Introductory paragraph (replace this with your text)
+You've ignored this tool for long enough. Just as death and taxes are certainties in life, regex reliance is a certainty in a developers journey.  Best to give in already. 
 
 ## Summary
 
-Briefly summarize the regex you will be describing and what you will explain. Include a code snippet of the regex. Replace this text with your summary.
 
 For [Module 12 homework - Employee Manager](https://github.com/conradjohnson/employee-mgr-m12), I used a code snippet from [Elias Zamaria](https://stackoverflow.com/users/28324/elias-zamaria) posted on [StackOverflow](https://stackoverflow.com/questions/2901102/how-to-print-a-number-with-commas-as-thousands-separators-in-javascript). 
 
@@ -110,6 +109,37 @@ Also known as 'Range' expressions.
 
 ### Character Classes
 
+Character classes are typically used in [Grouping Constructs](#grouping-constructs) and [Bracket Expressions](#bracket-expressions).
+
+```
+[ABC] = A or B or C
+[0-9] = Number between 0 and 9
+(^10) = No groupings of 0s and 1s.
+(1|3) = the number 1 or 3
+```
+
+
+### The OR Operator
+
+The pipe | or the OR operator is used in [Grouping Constructs](#grouping-constructs).
+
+```
+Ex:
+(1|3) = the number 1 or 3.
+```
+
+### Flags
+A flag changes the default searching behavior of a regular expression. It makes a regex search in a different way.  source: https://www.codeguage.com/courses/regexp/flags
+/pattern/flags
+
+```
+i = ignore casing 
+g = global will make search for all occurences.
+s = Dot all. makes the wild character . match new lines as well.
+m = Multiline. Makes Anchor characters ^ and $ match every new line, instead of just the beginning and end of a string.
+u = Unicode. Forces characters to match 32 bit characters.
+```
+### Character Escapes
 ```
 \w = Word is any of (a-z, A-Z, 0-9, underscore)
 \W = non word
@@ -124,11 +154,6 @@ Also known as 'Range' expressions.
 
 ```
 
-### The OR Operator
-
-### Flags
-
-### Character Escapes
 
 ## Author
 

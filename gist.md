@@ -80,20 +80,49 @@ source: https://cs.lmu.edu/~ray/notes/regex/
 
 ### Quantifiers
 ```
-* = 0 or more
-+ = 1 or more
-? = 0 or 1
-{min, max}
-{n}
+n* = 0 or more of character 'n'
+n+ = 1 or more of character 'n'
+n? = 0 or 1 of character 'n'
+n{2, 4} = 2, 3 or 4 sequential character 'n'
+n{2} =  exactly 2 'n'
+n{2,} = 2 or more 'n'
 ```
-source: https://www.youtube.com/watch?v=YTocEnDsMNw&t=410s
+source: https://www.youtube.com/watch?v=YTocEnDsMNw&t=410s, https://regexcrossword.com
+
 
 ### Grouping Constructs
-
+```
+. = Any character except new line (\n)
+(A|B) = A or B
+(...) = Group
+\n = nth group/sub pattern
+```
 ### Bracket Expressions
+Also known as 'Range' expressions.
+```
+[ABC] = A or B or C
+[^ABC] = Not A, B or C
+[A-Z] = Character between A and Z uppercase
+[0-9] = Number between 0 and 9
+[A-Z0-9] = Characters between A and Z and numbers between 0 and 9
+
+```
 
 ### Character Classes
 
+```
+\w = Word is any of (a-z, A-Z, 0-9, underscore)
+\W = non word
+\d = digit
+\D = Non-digit
+\s = Whitespace
+\S = Not whitespace
+\b = Match at begining or end
+\B = Do not match at beginning or end
+\0 = NULL character
+\n = new line
+
+```
 
 ### The OR Operator
 

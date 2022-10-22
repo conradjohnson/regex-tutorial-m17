@@ -53,7 +53,7 @@ A pattern that matches strings or pieces of strings. Regex is based upon the wor
 https://en.wikipedia.org/wiki/Thompson%27s_construction
 https://en.wikipedia.org/wiki/Ken_Thompson
 
-Regex has a rich toolset that allows applications and users to match complex patterns in strings of text.
+Regex has a rich toolset that allows applications and users to match complex patterns in strings of text.  Once a pattern is matched, programming languages like javascript provide string and logic tools to use with what you DO with that pattern: parse and store data, manipulate the string pattern found, remove from string, etc...
 
 ## Regex Components
 

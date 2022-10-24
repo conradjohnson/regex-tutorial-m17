@@ -58,15 +58,19 @@ Regex has a rich toolset that allows applications and users to match complex pat
 
 ## Regex Components
 
-search pattern & 
-text string
+The most basic regex component is a search pattern that will be used to search a string of text.  
 
+The search pattern can be made up of a combination of tools below.  
 
-literal character
-meta-characters 
+Using a variety of the tools and explanations below, we'll breakdown our own pattern:
+
+```
+/\B(?=(\d{3})+(?!\d))/g
+```
+...and see why this gives us commas in all of the thousands places in any number that is used in a string.
+
 
 ### Anchors
-
 
 ```
 ^ = Beginning of string (or line, depending on the mode)

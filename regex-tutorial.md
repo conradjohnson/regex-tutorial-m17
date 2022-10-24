@@ -231,4 +231,4 @@ Flag/\B-don't start at beginning or end, with a (?= Positive lookead for all (\d
 
 ## Author
 
-Conrad Johnson - https://github.com/conradjohnson
+Conrad Johnson is a web2/web3 developer.  - https://github.com/conradjohnson

@@ -44,6 +44,8 @@ As a developer, I've avoided regex patterns for as long as is possible.  This is
 - [The OR Operator](#the-or-operator)
 - [Flags](#flags)
 - [Character Escapes](#character-escapes)
+- [Lookaheads](#lookahead)
+- [RegEx Example Breakdown](#regex-example-breakdown)
 
 ## Regex Definition
 
@@ -85,6 +87,7 @@ n? = 0 or 1 of character 'n'
 n{2, 4} = 2, 3 or 4 sequential character 'n'
 n{2} =  exactly 2 'n'
 n{2,} = 2 or more 'n'
+? = greedy quantifier.  Optionally include preceeding character.  Manl?y would match 'Many' and 'Manly'
 ```
 source: https://www.youtube.com/watch?v=YTocEnDsMNw&t=410s, https://regexcrossword.com
 
@@ -96,6 +99,8 @@ source: https://www.youtube.com/watch?v=YTocEnDsMNw&t=410s, https://regexcrosswo
 (...) = Group
 \n = nth group/sub pattern
 ```
+
+
 ### Bracket Expressions
 Also known as 'Range' expressions.
 ```
@@ -154,7 +159,76 @@ u = Unicode. Forces characters to match 32 bit characters.
 
 ```
 
+### Lookaheads
+
+Lookaheads can be a positive or negative lookahead.
+
+Positive lookaheads matches something that is followed by pattern defined, without making the pattern defined part of the match.
+```r
+something(?=pattern)
+```
+
+Negative lookaheads matches something NOT followed by something else.
+```r
+something(?!somethingelse)
+```
+
+
+source: https://www.regular-expressions.info/lookaround.html
+
+
+### Regex Example Breakdown
+
+```r
+/\B(?=(\d{3})+(?!\d))/g
+
+```
+First - we're wrapping a [flag](#flags) around the entire pattern with:
+```r
+/Pattern/g
+
+```
+with the \g flag which searches for all occurrences of our pattern, not just a single occurance as we want all groupings of 3 digits starting at a non digit, and preceeded by another digit.
+
+That leaves us with pattern:
+```r
+\B(?=(\d{3})+(?!\d))
+
+```
+Which starts with \B - which says do not match at beginning or end.   Meaning, we don't want to start at the beginning of our number string. 
+
+Remaining pattern is:
+```r
+(?=(\d{3})+(?!\d))
+```
+
+Our pattern:
+```r
+(?=[some pattern])
+```
+is a positive [lookahead](#lookaheads).
+
+\B used in conjunction with our positive lookahead will take our positive lookahead pattern and start matching at all unique occurences of 3 digits, 3 digits after the 'beginning' of our number starting from the the zeros place and counting to however many 10 multiples we have.
+
+Our remaining pattern fed to the lookahead:
+```r
+(\d{3})+(?!\d)
+```
+we're looking for 3 digits: '(\d{3})' that are '+' and a negative lookahead. 
+
+```r
+(?!\d)
+```
+
+The negative lookahead will start the search for a group of 3 numbers that are not followed by a digit.
+
+Our regex 'pattern' breakdown is as follows:
+
+```r
+Flag/\B-don't start at beginning or end, with a (?= Positive lookead for all (\d{3}) 3 digit ocurrences with a (?!\d) negative lookahead for any digit)/g-Find all occurrences
+```
+
 
 ## Author
 
-A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
+Conrad Johnson - https://github.com/conradjohnson
